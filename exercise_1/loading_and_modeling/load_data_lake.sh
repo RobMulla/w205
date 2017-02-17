@@ -52,7 +52,20 @@ hdfs dfs -mkdir /user/w205/hospital_compare
 
 # Copy files to hdfs
 
-hdfs dfs -put clean/* $HDFS_DIR 
+hdfs dfs -mkdir $HDFS_DIR/hospitals
+hdfs dfs -put $NEW_FILE1 $HDFS_DIR/hospitals 
+
+hdfs dfs -mkdir $HDFS_DIR/effective_care
+hdfs dfs -put $NEW_FILE2 $HDFS_DIR/effective_care
+
+hdfs dfs -mkdir $HDFS_DIR/readmissions
+hdfs dfs -put $NEW_FILE3 $HDFS_DIR/readmissions
+
+hdfs dfs -mkdir $HDFS_DIR/measures
+hdfs dfs -put $NEW_FILE4 $HDFS_DIR/measures
+
+hdfs dfs -mkdir $HDFS_DIR/survey_responses
+hdfs dfs -put $NEW_FILE5 $HDFS_DIR/survey_responses
 
 # Change directory back to the original
 
