@@ -27,9 +27,22 @@ NEW_FILE4="clean/Measures.csv"
 OLD_FILE5="hvbp_hcahps_11_10_2016.csv"
 NEW_FILE5="clean/surveys_responses.csv"
 
-# Create our hdfs director
+# clean hdfs
 
 HDFS_DIR="/user/w205/hospital_compare"
+
+hdfs dfs -rm /user/w205/hospital_compare/hospitals/*
+hdfs dfs -rm /user/w205/hospital_compare/effective_care/*
+hdfs dfs -rm /user/w205/hospital_compare/readmissions/*
+hdfs dfs -rm /user/w205/hospital_compare/measures/*
+hdfs dfs -rm /user/w205/hospital_compare/survey_responses/*
+
+hdfs dfs -rmdir /user/w205/hospital_compare/hospitals/
+hdfs dfs -rmdir /user/w205/hospital_compare/effective_care/
+hdfs dfs -rmdir /user/w205/hospital_compare/readmissions/
+hdfs dfs -rmdir /user/w205/hospital_compare/measures/
+hdfs dfs -rmdir /user/w205/hospital_compare/survey_responses/
+
 
 hdfs dfs -rm /user/w205/hospital_compare/*
 hdfs dfs -rmdir /user/w205/hospital_compare
