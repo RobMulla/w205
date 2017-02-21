@@ -37,7 +37,7 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/user/w205/hopsital_compare/hosptials';
+LOCATION '/user/w205/hospital_compare/hospitals';
 
 DROP TABLE effective_care;
 CREATE EXTERNAL TABLE effective_care (
@@ -65,7 +65,7 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/user/w205/hopsital_compare/effective_care';
+LOCATION '/user/w205/hospital_compare/effective_care';
 
 DROP TABLE readmissions;
 CREATE EXTERNAL TABLE readmissions (
@@ -95,7 +95,7 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/user/w205/hopsital_compare/readmissions';
+LOCATION '/user/w205/hospital_compare/readmissions';
 
 DROP TABLE Measures;
 CREATE EXTERNAL TABLE Measures (
@@ -115,7 +115,7 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/user/w205/hopsital_compare/Measures';
+LOCATION '/user/w205/hospital_compare/measures';
 
 DROP TABLE surveys_responses;
 CREATE EXTERNAL TABLE surveys_responses (
@@ -200,5 +200,5 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/user/w205/hopsital_compare/surveys_responses';
+LOCATION '/user/w205/hospital_compare/surveys_responses';
 
