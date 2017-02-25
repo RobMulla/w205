@@ -38,11 +38,19 @@ NEW_FILE4="clean/Measures.csv"
 OLD_FILE5="hvbp_hcahps_11_10_2016.csv"
 NEW_FILE5="clean/surveys_responses.csv"
 
+OLD_FILE6="HCAHPS - Hospital.csv"
+OLD_FILE7="hvbp_tps_11_10_2016.csv"
+
+NEW_FILE6="clean/survey_hospitals.csv"
+NEW_FILE7="clean/tps.csv"
+
 tail -n +2 "$OLD_FILE1" > $NEW_FILE1
 tail -n +2 "$OLD_FILE2" > $NEW_FILE2
 tail -n +2 "$OLD_FILE3" > $NEW_FILE3
 tail -n +2 "$OLD_FILE4" > $NEW_FILE4
 tail -n +2 "$OLD_FILE5" > $NEW_FILE5
+tail -n +2 "$OLD_FILE6" > $NEW_FILE6
+tail -n +2 "$OLD_FILE7" > $NEW_FILE7
 
 # Create our hdfs director
 
@@ -66,6 +74,12 @@ hdfs dfs -put $NEW_FILE4 $HDFS_DIR/measures
 
 hdfs dfs -mkdir $HDFS_DIR/survey_responses
 hdfs dfs -put $NEW_FILE5 $HDFS_DIR/survey_responses
+
+hdfs dfs -mkdir $HDFS_DIR/survey_hospital
+hdfs dfs -put $NEW_FILE6 $HDFS_DIR/survey_hospital
+
+hdfs dfs -mkdir $HDFS_DIR/tps
+hdfs dfs -put $NEW_FILE7 $HDFS_DIR/tps
 
 # Change directory back to the original
 
