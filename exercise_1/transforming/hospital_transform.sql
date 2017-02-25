@@ -1,3 +1,16 @@
 CREATE TABLE hospital_transformed AS
 
-SELECT tps.
+SELECT 
+tps.Provider_ID
+tps.Hospital_Name,
+tps.State,
+tps.Unweighted_Normalized_Clinical_Care__Process_Domain_Score as Process_Score,
+tps.Unweighted_Normalized_Clinical_Care__Outcomes_Domain_Score as Outcomes_Score,
+tps.Unweighted_Patient_and_Caregiver_Centered_Experience_of_Care_Care_Coordination_Domain_Score as Care_Coordination_Score,	tps.Unweighted_Normalized_Safety_Domain_Score as Safety_Score,
+tps.Unweighted_Normalized_Efficiency_and_Cost_Reduction_Domain_Score as Cost_Reduction_Score,
+tps.Total_Performance_Score as Total_Score,
+hospitals.Hospital_overall_rating as Overall_Rating
+
+
+FROM tps JOIN ON hospitals WHERE tps.Provider_Number = hospitals.Provider_ID
+;
