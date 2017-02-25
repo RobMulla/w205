@@ -15,5 +15,4 @@ RANK() OVER (ORDER BY Total_Score DESC) overall_rank
 
 FROM hospital_transformed
 
-ORDER BY overall_rank DESC
-;
+ORDER BY overall_rank ASC;
