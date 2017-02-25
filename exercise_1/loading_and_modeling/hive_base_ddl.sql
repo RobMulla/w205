@@ -200,7 +200,7 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/user/w205/hospital_compare/surveys_responses';
+LOCATION '/user/w205/hospital_compare/survey_responses';
 
 DROP TABLE surveys_hospitals;
 CREATE EXTERNAL TABLE surveys_hospitals (
@@ -234,7 +234,7 @@ WITH SERDEPROPERTIES (
 "escapeChar" = '\\'
 )
 STORED AS TEXTFILE
-LOCATION '/user/w205/hospital_compare/survey_hospitals';
+LOCATION '/user/w205/hospital_compare/survey_hospital';
 
 DROP TABLE tps;
 CREATE EXTERNAL TABLE tps (
