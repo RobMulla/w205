@@ -202,3 +202,66 @@ WITH SERDEPROPERTIES (
 STORED AS TEXTFILE
 LOCATION '/user/w205/hospital_compare/surveys_responses';
 
+DROP TABLE surveys_hospitals;
+CREATE EXTERNAL TABLE surveys_hospitals (
+	Provider_ID string,
+	Hospital_Name string,
+	Address string,
+	City string,
+	State string,
+	ZIP_Code string,
+	County_Name string,
+	Phone_Number string,
+	HCAHPS_Measure_ID string,
+	HCAHPS_Question string,
+	HCAHPS_Answer_Description string,
+	Patient_Survey_Star_Rating string,
+	Patient_Survey_Star_Rating_Footnote string,
+	HCAHPS_Answer_Percent string,
+	HCAHPS_Answer_Percent_Footnote string,
+	HCAHPS_Linear_Mean_Value string,
+	Number_of_Completed_Surveys string,
+	Number_of_Completed_Surveys_Footnote string,
+	Survey_Response_Rate_Percent string,
+	Survey_Response_Rate_Percent_Footnote string,
+	Measure_Start_Date string,
+	Measure_End_Date string
+	)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+"separatorChar" = ",",
+"quoteChar" = '"',
+"escapeChar" = '\\'
+)
+STORED AS TEXTFILE
+LOCATION '/user/w205/hospital_compare/survey_hospitals';
+
+DROP TABLE tps;
+CREATE EXTERNAL TABLE tps (
+	Provider_Number string,
+	Hospital_Name string,
+	Address string,
+	City string,
+	State string,
+	Zip_Code string,
+	County_Name string,
+	Unweighted_Normalized_Clinical_Care_-_Process_Domain_Score string,
+	Weighted_Clinical_Care_-_Process_Domain_Score string,
+	Unweighted_Normalized_Clinical_Care_-_Outcomes_Domain_Score string,
+	Weighted_Normalized_Clinical_Care_-_Outcomes_Domain_Score string,
+	Unweighted_Patient_and_Caregiver_Centered_Experience_of_Care/Care_Coordination_Domain_Score string,
+	Weighted_Patient_and_Caregiver_Centered_Experience_of_Care/Care_Coordination_Domain_Score string,
+	Unweighted_Normalized_Safety_Domain_Score string,
+	Weighted_Safety_Domain_Score string,
+	Unweighted_Normalized_Efficiency_and_Cost_Reduction_Domain_Score string,
+	Weighted_Efficiency_and_Cost_Reduction_Domain_Score string,
+	Total_Performance_Score string
+	)
+ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+WITH SERDEPROPERTIES (
+"separatorChar" = ",",
+"quoteChar" = '"',
+"escapeChar" = '\\'
+)
+STORED AS TEXTFILE
+LOCATION '/user/w205/hospital_compare/tps';
