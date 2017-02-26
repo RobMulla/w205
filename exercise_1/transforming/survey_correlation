@@ -1,7 +1,0 @@
-SELECT
-
-process_score,
-nurse_rating,
-doctor_rating
-
-FROM 
