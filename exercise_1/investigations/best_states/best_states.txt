@@ -1,6 +1,6 @@
 best_states.txt
 
-Below are the top ranked states which are models of high-quality care. Using the same score as I used to rank hospitals (a combination of Normalized Clinical Care metrics), I grouped by state and found the average score. While this list may be biased by small states (and therefore a low count of hospitals within the state) I believe it is a good representation of states with high-quality care. States such as California and Florida have a large number of hospitals but still compete nationally in terms of average hospital score.
+Below are the top ranked states that are models of high-quality care. Using the same score as I used to rank hospitals (a combination of Normalized Clinical Care metrics), I grouped by state and found the average score. The list may be biased by small states that may have fewer hospitals to contribute to their average. Because of that I also included the count of hospitals in the state. Regardless I believe it is a good representation of states with high-quality care. States such as California and Florida have a large number of hospitals but still compete nationally in terms of average hospital score.
 
 
 State 	Rank	Average Score	Count of Hospitals in State
