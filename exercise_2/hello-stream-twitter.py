@@ -31,7 +31,7 @@ class StdOutListener(StreamListener):
                 self.dataJsonText = self.dataJson["text"].lower()
                 self.count += 1
                 # print self.dataJsonText
-		if "hokies" in self.dataJsonText:
+		if "trump" in self.dataJsonText:
                     print self.dataJsonText
 
             else:
