@@ -44,8 +44,9 @@ class WordCounter(Bolt):
 
     def process(self, tup):
         word = tup.values[0]
+        conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
 
-        #cur = conn.cursor()
+        cur = conn.cursor()
 
         if self.counts[word] == 1:
             # Insert the word into the table
