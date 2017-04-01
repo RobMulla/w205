@@ -7,6 +7,8 @@ print "sys.argv"
 print sys.argv
 print "arg is"
 print arg
+print "arg[0] is"
+print arg[0]
 
 #Connecting to tcount
 conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
