@@ -69,7 +69,7 @@ class WordCounter(Bolt):
 
         cur.execute("UPDATE tweetwordcount set count=count+1 where word = %s",(tword,))
         cur.execute("INSERT INTO tweetwordcount (word,count) \
-                        Select %s,1 WHERE NOT EXISTS (SELECT * FROM tweetwordcount WHERE word = %s)", (tword, tword))
+                        SELECT %s,1 WHERE NOT EXISTS (SELECT * FROM tweetwordcount WHERE word = %s)", (tword, tword))
         conn.commit()
 
         conn.close()
