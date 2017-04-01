@@ -43,7 +43,7 @@ class WordCounter(Bolt):
             cur = conn.cursor()
             cur.execute("DROP TABLE IF EXISTS tweetwordcount; \
                 CREATE TABLE tweetwordcount \
-                (word TEXT     NOT NULL, \
+                (word TEXT PRIMARY KEY     NOT NULL, \
                 count INT     NOT NULL);")
             conn.commit()
             conn.close()
@@ -67,14 +67,11 @@ class WordCounter(Bolt):
         conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         cur = conn.cursor()
 
-
-        #if self.counts[tword] == 1:
-            # Insert the word into the table
-            
-        #else:
-        cur.execute("UPDATE tweetwordcount SET count=%s WHERE word=%s", (self.counts[tword], tword))
-        cur.execute("INSERT INTO tweetwordcount (word,count) VALUES (%s, %s)",(tword, 1));
+        cur.execute("UPDATE tweetwordcount set count=count+1 where word = %s",(word,))
+        cur.execute("INSERT INTO tweetwordcount (word,count) \
+                        Select %s,1 WHERE NOT EXISTS (SELECT * FROM tweetwordcount WHERE word = %s)", (tword, tword))
         conn.commit()
+
         conn.close()
 
         # Write codes to increment the word count in Postgres
