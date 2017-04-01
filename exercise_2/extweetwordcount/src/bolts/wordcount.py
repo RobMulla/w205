@@ -36,13 +36,13 @@ class WordCounter(Bolt):
         #Create a Table
         #The first step is to create a cursor. 
 
-        cur = conn.cursor()
-        cur.execute('''CREATE TABLE tweetwordcount
-            (word TEXT PRIMARY KEY     NOT NULL,
-            count INT     NOT NULL);''')
-        conn.commit()
-        conn.close()
-
+        try:
+            cur = conn.cursor()
+            cur.execute('''CREATE TABLE tweetwordcount
+                (word TEXT PRIMARY KEY     NOT NULL,
+                count INT     NOT NULL);''')
+            conn.commit()
+            conn.close()
 
     def process(self, tup):
         word = tup.values[0]
