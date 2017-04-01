@@ -33,14 +33,16 @@ class WordCounter(Bolt):
 
         conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
 
-        #Create a Table
+        Create a Table
         #The first step is to create a cursor. 
 
-        #cur = conn.cursor()
-        #cur.execute('''CREATE TABLE tweetwordcount
-        #    (word TEXT PRIMARY KEY     NOT NULL,
-        #    count INT     NOT NULL);''')
-        #conn.commit()
+        cur = conn.cursor()
+        cur.execute('''CREATE TABLE tweetwordcount
+            (word TEXT PRIMARY KEY     NOT NULL,
+            count INT     NOT NULL);''')
+        conn.commit()
+        conn.close()
+
 
     def process(self, tup):
         word = tup.values[0]
@@ -52,14 +54,14 @@ class WordCounter(Bolt):
         # Log the count - just to see the topology running
         self.log('%s: %d' % (word, self.counts[word]))
 
-        
+
         conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
 
         cur = conn.cursor()
 
         if self.counts[word] == 1:
             # Insert the word into the table
-            cur.execute("INSERT INTO tweetwordcount (word,count) VALUES (word, self.counts[word])");
+            cur.execute("INSERT INTO tweetwordcount (word,count) VALUES (word, 1)");
             conn.commit()
 
         else:
