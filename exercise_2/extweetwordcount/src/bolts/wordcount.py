@@ -45,7 +45,7 @@ class WordCounter(Bolt):
     def process(self, tup):
         word = tup.values[0]
 
-        cur = conn.cursor()
+        #cur = conn.cursor()
 
         if self.counts[word] == 1:
             # Insert the word into the table
