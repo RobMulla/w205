@@ -31,43 +31,47 @@ class WordCounter(Bolt):
         # Connect to tcount
 
         conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
+        conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
 
         #Create a Table
         #The first step is to create a cursor. 
 
+        cur = conn.cursor()
+
         try:
             conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
             cur = conn.cursor()
-            cur.execute('''CREATE TABLE tweetwordcount
-                (word TEXT PRIMARY KEY     NOT NULL,
-                count INT     NOT NULL);''')
+            cur.execute("DROP TABLE IF EXISTS tweetwordcount; \
+                CREATE TABLE tweetwordcount \
+                (word TEXT PRIMARY KEY     NOT NULL, \
+                count INT     NOT NULL);")
             conn.commit()
             conn.close()
         except:
             print("Could not create table")
 
     def process(self, tup):
-        word = tup.values[0]
+        uword = tup.values[0]
 
         # Increment the local count
-        self.counts[word] += 1
-        self.emit([word, self.counts[word]])
+        self.counts[uword] += 1
+        self.emit([uword, self.counts[word]])
 
         # Log the count - just to see the topology running
-        self.log('%s: %d' % (word, self.counts[word]))
+        self.log('%s: %d' % (word, self.counts[uword]))
 
 
         conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
-
+        conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         cur = conn.cursor()
 
-        if self.counts[word] == 1:
+        if self.counts[uword] == 1:
             # Insert the word into the table
-            cur.execute("INSERT INTO tweetwordcount (word,count) VALUES (word, 1)");
+            cur.execute("INSERT INTO tweetwordcount (word,count) VALUES (uword, 1)");
             conn.commit()
 
         else:
-            cur.execute("UPDATE tweetwordcount SET count=%s WHERE word=%s", (self.counts[word], word))
+            cur.execute("UPDATE tweetwordcount SET count=%s WHERE word=%s", (self.counts[uword], uword))
             conn.commit()
 
         # Write codes to increment the word count in Postgres
