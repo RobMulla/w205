@@ -67,8 +67,8 @@ class WordCounter(Bolt):
 
         if self.counts[tword] == 1:
             # Insert the word into the table
-            cur.execute("INSERT INTO tweetwordcount (word,count) VALUES (tword, 1)");
-            conn.commit()
+            cur.execute("INSERT INTO tweetwordcount (word,count) \ 
+                VALUES (%s, 1)",(tword));
 
         else:
             cur.execute("UPDATE tweetwordcount SET count=%s WHERE word=%s", (self.counts[tword], tword))
