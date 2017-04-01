@@ -16,5 +16,5 @@ for rec in records:
 	if arg == rec[0]:
 		print "word = ", rec[0]
 		print "count = ", rec[1], "\n"
-		print 'Total number of occurrences of of "%s": %s', (rec[0], rec[1])
+		print('Total number of occurrences of of "%s": %s') % (rec[0], rec[1])
 conn.commit()
