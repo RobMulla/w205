@@ -11,8 +11,8 @@ conn = psycopg2.connect(database="tcount", user="postgres", password="pass", hos
 cur = conn.cursor()
 cur.execute("SELECT word, count from tweetwordcount")
 records = cur.fetchall()
-for rec[0] in records:
-	if arg == rec:
+for rec in records:
+	if arg == rec[0]:
 		print "word = ", rec[0]
 		print "count = ", rec[1], "\n"
 conn.commit()
