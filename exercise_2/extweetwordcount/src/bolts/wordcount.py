@@ -67,7 +67,7 @@ class WordCounter(Bolt):
 
         if self.counts[tword] == 1:
             # Insert the word into the table
-            cur.execute("INSERT INTO tweetwordcount (word,count) \ 
+            cur.execute("INSERT INTO tweetwordcount (word,count) \
                 VALUES (%s, 1)",(tword));
 
         else:
