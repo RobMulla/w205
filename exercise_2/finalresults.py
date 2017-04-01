@@ -2,8 +2,7 @@ import sys
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
-for arg in sys.argv[1:]:
-  print arg
+print arg
 
 #Connecting to tcount
 conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
@@ -11,6 +10,8 @@ conn = psycopg2.connect(database="tcount", user="postgres", password="pass", hos
 cur = conn.cursor()
 cur.execute("SELECT word, count from tweetwordcount")
 records = cur.fetchall()
+
+
 for rec in records:
 	if arg == rec[0]:
 		print "word = ", rec[0]
