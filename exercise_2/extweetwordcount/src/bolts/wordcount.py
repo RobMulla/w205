@@ -67,7 +67,7 @@ class WordCounter(Bolt):
         conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         cur = conn.cursor()
 
-        cur.execute("UPDATE tweetwordcount set count=count+1 where word = %s",(word,))
+        cur.execute("UPDATE tweetwordcount set count=count+1 where word = %s",(tword,))
         cur.execute("INSERT INTO tweetwordcount (word,count) \
                         Select %s,1 WHERE NOT EXISTS (SELECT * FROM tweetwordcount WHERE word = %s)", (tword, tword))
         conn.commit()
