@@ -67,13 +67,15 @@ class WordCounter(Bolt):
         conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         cur = conn.cursor()
 
-        if self.counts[tword] == 1:
-            # Insert the word into the table
-            cur.execute("INSERT INTO tweetwordcount (word,count) VALUES (%s, 1)",(str(tword)));
 
-        else:
-            cur.execute("UPDATE tweetwordcount SET count=%s WHERE word=%s", (self.counts[tword], tword))
-            conn.commit()
+        #if self.counts[tword] == 1:
+            # Insert the word into the table
+            
+        #else:
+        cur.execute("UPDATE tweetwordcount SET count=%s WHERE word=%s", (self.counts[tword], tword))
+        cur.execute("INSERT INTO tweetwordcount (word,count) VALUES (%s, %s)",(tword, 1));
+        conn.commit()
+        conn.close()
 
         # Write codes to increment the word count in Postgres
         # Use psycopg to interact with Postgres
