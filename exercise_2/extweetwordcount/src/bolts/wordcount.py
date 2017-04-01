@@ -27,7 +27,7 @@ class WordCounter(Bolt):
             cur.close()
             conn.close()
         except:
-            print "Could not create tcount"
+            print("Could not create tcount")
 
         # Connect to tcount
 
