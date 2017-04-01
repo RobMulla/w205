@@ -53,6 +53,7 @@ class WordCounter(Bolt):
 
 
         cur.execute("UPDATE tweetwordcount SET count=%s WHERE word=%s", (self.counts[word], word))
+        conn.commit()
 
         # Write codes to increment the word count in Postgres
         # Use psycopg to interact with Postgres
