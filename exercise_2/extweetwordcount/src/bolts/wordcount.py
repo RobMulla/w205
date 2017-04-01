@@ -37,12 +37,15 @@ class WordCounter(Bolt):
         #The first step is to create a cursor. 
 
         try:
+            conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
             cur = conn.cursor()
             cur.execute('''CREATE TABLE tweetwordcount
                 (word TEXT PRIMARY KEY     NOT NULL,
                 count INT     NOT NULL);''')
             conn.commit()
             conn.close()
+        except:
+            print("Could not create table")
 
     def process(self, tup):
         word = tup.values[0]
