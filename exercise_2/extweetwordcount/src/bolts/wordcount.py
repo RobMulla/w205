@@ -51,27 +51,27 @@ class WordCounter(Bolt):
             print("Could not create table")
 
     def process(self, tup):
-        uword = tup.values[0]
+        tword = tup.values[0]
 
         # Increment the local count
-        self.counts[uword] += 1
-        self.emit([uword, self.counts[word]])
+        self.counts[tword] += 1
+        self.emit([tword, self.counts[tword]])
 
         # Log the count - just to see the topology running
-        self.log('%s: %d' % (word, self.counts[uword]))
+        self.log('%s: %d' % (tword, self.counts[tword]))
 
 
         conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
         conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
         cur = conn.cursor()
 
-        if self.counts[uword] == 1:
+        if self.counts[tword] == 1:
             # Insert the word into the table
-            cur.execute("INSERT INTO tweetwordcount (word,count) VALUES (uword, 1)");
+            cur.execute("INSERT INTO tweetwordcount (word,count) VALUES (tword, 1)");
             conn.commit()
 
         else:
-            cur.execute("UPDATE tweetwordcount SET count=%s WHERE word=%s", (self.counts[uword], uword))
+            cur.execute("UPDATE tweetwordcount SET count=%s WHERE word=%s", (self.counts[tword], tword))
             conn.commit()
 
         # Write codes to increment the word count in Postgres
