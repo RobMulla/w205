@@ -5,7 +5,6 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 for arg in sys.argv[1:]:
   print arg
 
-print argv
 #Connecting to tcount
 conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
 
