@@ -53,6 +53,8 @@ class WordCounter(Bolt):
     def process(self, tup):
         tword = tup.values[0]
 
+        print(tword)
+
         # Increment the local count
         self.counts[tword] += 1
         self.emit([tword, self.counts[tword]])
