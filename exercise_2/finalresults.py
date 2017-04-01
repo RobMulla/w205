@@ -2,6 +2,8 @@ import sys
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
+for arg in sys.argv[1:]:
+  print arg
 
 print argv
 #Connecting to tcount
