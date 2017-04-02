@@ -10,11 +10,9 @@ conn = psycopg2.connect(database="tcount", user="postgres", password="pass", hos
 cur = conn.cursor()
 cur.execute("SELECT word, count from tweetwordcount")
 records = cur.fetchall()
-
+records.sort(key = lambda tup: tup[1])
 
 for rec in records:
 	if arg == rec[0]:
-		print "word = ", rec[0]
-		print "count = ", rec[1], "\n"
-		print('Total number of occurrences of of "%s": %s') % (rec[0], rec[1])
+		print('Total number of occurrences of "%s": %s') % (rec[0], rec[1])
 conn.commit()
