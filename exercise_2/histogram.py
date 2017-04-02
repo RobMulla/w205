@@ -16,7 +16,7 @@ try:
 	max = sys.argv[2:][1]
 except:
 	print "bad format. This program requires two numbers 1,2"
-else:
+#else:
 #	for rec in records:
 #		if arg == rec[0]:
 #			print('Total number of occurrences of "%s": %s') % (rec[0], rec[1])
