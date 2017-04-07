@@ -15,7 +15,8 @@ try:
 	arg = sys.argv[1:][0]
 except:
 	for record in records:
-		print record + "\n"
+		print record
+		print \n
 else:
 	for rec in records:
 		if arg == rec[0]:
