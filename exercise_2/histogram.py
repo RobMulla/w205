@@ -18,8 +18,9 @@ try:
 	for record in records:
 		print str(record[0]) + ": " + str(record[1])
 
+	conn.close()
 except:
 	print "bad format. This program requires two numbers 1,2"
 
 # Close the connection
-conn.close()
+
