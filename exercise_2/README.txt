@@ -18,6 +18,7 @@ Make sure postgres is running and you are in the \exercise_2\ directory
 Also install python packages
 
 `$ pip install matplotlib`
+
 `$ pip install psycopg2==2.6.2`
 
 Log into w205 account
@@ -38,6 +39,7 @@ STEP 3
 Run the twitter stream
 
 `$ cd extweetwordcount/`
+
 `$ sparse run`
 
 Wait ~5 minutes and type `Control-C` to stop the process
@@ -49,6 +51,7 @@ STEP 4
 Run python code to test results
 
 `$ cd ..`
+
 `$ python finalresults.py`
 
 Find the number of times trump was mentioned
