@@ -15,7 +15,7 @@ conn = psycopg2.connect(database="tcount", user="postgres", password="pass", hos
 
 cur = conn.cursor()
 cur.execute("SELECT word, count from tweetwordcount where count >= %s and count <= %s \
-			ORDER BY count DESC;"), (min, max))
+			ORDER BY count DESC;", (min, max))
 records = cur.fetchall()
 records.sort(key = lambda tup: tup[0])
 
