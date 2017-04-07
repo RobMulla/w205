@@ -2,7 +2,8 @@ import sys
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
+import pandas as pd
 
 # Pull in the min and max values
 
@@ -25,6 +26,12 @@ for record in records:
 print words_list
 print counts_list
 
+df = pd.DataFrame(counts_list, words_list)
+print df
+
+#df.plot()
+
+df.to_csv('bar.csv', header=False)
 # y_pos = np.arange(len(objects))
 
 # plt.bar(records[1], performance, align='center', alpha=0.5)
