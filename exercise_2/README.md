@@ -1,5 +1,5 @@
-Rob Mulla's Exercise 2 - W205
-Below are instructions on how to execute the code:
+# Rob Mulla's Exercise 2 - W205
+## Below are instructions on how to execute the code:
 
 ----------------
 STEP 0
