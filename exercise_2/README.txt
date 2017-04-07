@@ -2,6 +2,14 @@ Rob Mulla's Exercise 2 - W205
 Below are instructions on how to execute the code:
 
 ----------------
+% STEP 0
+----------------
+
+Clone the repo to your local EC instance
+
+$ git clone <git repo url>
+
+----------------
 % STEP 1
 ----------------
 
