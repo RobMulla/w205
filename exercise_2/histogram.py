@@ -13,8 +13,12 @@ records.sort(key = lambda tup: tup[0])
 
 try:
 	minmax = sys.argv[1:][0]
+	print minmax
+	min, max = minmax.split(',')
 except:
 	print "bad format. This program requires two numbers 1,2"
+
+
 #else:
 #	for rec in records:
 #		if arg == rec[0]:
