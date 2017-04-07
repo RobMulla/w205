@@ -8,7 +8,12 @@ Below are instructions on how to execute the code:
 Make sure postgres is running and you are in the \exercise_2\ directory
 Make sure you are in w205 account
 
->> su - w205
+$ su - w205
+
+Also install python packages
+
+$ pip install matplotlib
+$ pip install psycopg2==2.6.2
 
 ----------------
 % STEP 2
@@ -16,7 +21,7 @@ Make sure you are in w205 account
 
 Drop the tcount table if it exists
 
->> psql -U postgres -c "DROP DATABASE tcount"
+$ psql -U postgres -c "DROP DATABASE tcount"
 
 ----------------
 % STEP 3
@@ -24,8 +29,8 @@ Drop the tcount table if it exists
 
 Run the twitter stream
 
->> cd extweetwordcount/
->> sparse run
+$ cd extweetwordcount/
+$ sparse run
 
 Wait ~5 minutes and type `Control-C` to stop the process
 
@@ -35,10 +40,10 @@ Wait ~5 minutes and type `Control-C` to stop the process
 
 Run python code to test results
 
->> cd ..
->> python finalresults.py
+$ cd ..
+$ python finalresults.py
 
 Find the number of times trump was mentioned
 
->> python finalresults.py trump
+$ python finalresults.py trump
 
