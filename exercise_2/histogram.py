@@ -19,6 +19,8 @@ cur.execute("SELECT word, count from tweetwordcount where count >= %s and count 
 records = cur.fetchall()
 records.sort(key = lambda tup: tup[0])
 
+print record in records
+
 
 
 
