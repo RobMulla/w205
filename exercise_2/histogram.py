@@ -5,7 +5,7 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 # Pull in the min and max values
 try:
 	minmax = sys.argv[1:][0]
-	print minmax
+	#print minmax
 	min, max = minmax.split(',')
 except:
 	print "bad format. This program requires two numbers 1,2"
@@ -17,9 +17,9 @@ cur = conn.cursor()
 cur.execute("SELECT word, count from tweetwordcount where count >= %s and count <= %s \
 			ORDER BY count DESC;", (min, max))
 records = cur.fetchall()
-records.sort(key = lambda tup: tup[0])
 
-print record in records
+for record in records:
+	print str(record[0]) + ": " + str(record[1])
 
 
 
