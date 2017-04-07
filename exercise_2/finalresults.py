@@ -16,7 +16,6 @@ try:
 except:
 	for record in records:
 		print record
-		print "\n"
 else:
 	for rec in records:
 		if arg == rec[0]:
