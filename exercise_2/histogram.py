@@ -12,8 +12,7 @@ records = cur.fetchall()
 records.sort(key = lambda tup: tup[0])
 
 try:
-	min = sys.argv[1:][0]
-	min = sys.argv[1:][2]
+	minmax = sys.argv[1:][0]
 except:
 	print "bad format. This program requires two numbers 1,2"
 #else:
