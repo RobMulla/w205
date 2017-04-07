@@ -6,14 +6,14 @@ Below are instructions on how to execute the code:
 ----------------
 
 Make sure postgres is running and you are in the \exercise_2\ directory
-Make sure you are in w205 account
-
-$ su - w205
 
 Also install python packages
 
 $ pip install matplotlib
 $ pip install psycopg2==2.6.2
+
+Log into w205 account
+$ su - w205
 
 ----------------
 % STEP 2
@@ -47,3 +47,9 @@ Find the number of times trump was mentioned
 
 $ python finalresults.py trump
 
+
+----------------
+% STEP 5
+----------------
+
+run the histogram
