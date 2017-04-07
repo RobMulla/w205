@@ -13,17 +13,11 @@ records.sort(key = lambda tup: tup[0])
 
 try:
 	min = sys.argv[1:][0]
-	max = sys.argv[2:][1]
 except:
 	print "bad format. This program requires two numbers 1,2"
 #else:
 #	for rec in records:
 #		if arg == rec[0]:
 #			print('Total number of occurrences of "%s": %s') % (rec[0], rec[1])
-
-print "min is"
-print min
-print "max is"
-print max
 
 conn.close()

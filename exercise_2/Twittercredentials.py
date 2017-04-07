@@ -13,7 +13,6 @@ access_token = "14313217-5na24mGCcRAljaf9RN8SILrIkzscf9qS0SlD5XclS";
 access_token_secret = "qYxwOTs2GL2ESFyyzdLZDjpXR2aYEiNG7yWF8QVDPjt9F";
 #eg: access_token_secret = "YisfFjiodKtojtUvW4MSEcPmYisfFjiodKtojtUvW4MSEcPmYisfFjiodKtojtUvW4MSEcPm";
 
-
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 

@@ -14,7 +14,8 @@ records.sort(key = lambda tup: tup[0])
 try:
 	arg = sys.argv[1:][0]
 except:
-	print records
+	for record in records:
+		print record + "\n"
 else:
 	for rec in records:
 		if arg == rec[0]:

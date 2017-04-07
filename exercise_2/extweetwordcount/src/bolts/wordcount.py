@@ -6,10 +6,6 @@ from streamparse.bolt import Bolt
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
-
-
-
-
 class WordCounter(Bolt):
 
     def initialize(self, conf, ctx):
