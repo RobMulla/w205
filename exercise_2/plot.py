@@ -8,8 +8,8 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 conn = psycopg2.connect(database="tcount", user="postgres", password="pass", host="localhost", port="5432")
 
 cur = conn.cursor()
-cur.execute("SELECT word, count from tweetwordcount limit 20 \
-			ORDER BY count DESC;", (min, max))
+cur.execute("SELECT word, count from tweetwordcount  \
+			ORDER BY count DESC LIMIT 20;", (min, max))
 records = cur.fetchall()
 
 for record in records:

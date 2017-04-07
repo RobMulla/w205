@@ -6,6 +6,9 @@ Below are instructions on how to execute the code:
 ----------------
 
 Make sure postgres is running and you are in the \exercise_2\ directory
+Make sure you are in w205 account
+
+>> su - w205
 
 ----------------
 % STEP 2
@@ -30,5 +33,12 @@ Wait ~5 minutes and type `Control-C` to stop the process
 % STEP 4
 ----------------
 
+Run python code to test results
+
 >> cd ..
->>
+>> python finalresults.py
+
+Find the number of times trump was mentioned
+
+>> python finalresults.py trump
+
