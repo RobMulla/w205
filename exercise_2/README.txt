@@ -24,8 +24,32 @@ Also install python packages
 Log into w205 account
 `$ su - w205`
 
+
 ----------------
 STEP 2
+----------------
+
+Add twitter credentials
+
+Go to the following folder, vi into the tweets.py file and add your twitter API credentials. You can also add to the Twittercredentials.py file
+
+`$ cd exercise_2\extweetwordcount\src\spouts\`
+`$ vi tweets.py`
+
+
+You will add your credentials in the section that says this:
+
+```
+twitter_credentials = {
+    "consumer_key"        :  "",
+    "consumer_secret"     :  "",
+    "access_token"        :  "",
+    "access_token_secret" :  "",
+}
+```
+
+----------------
+STEP 3
 ----------------
 
 Drop the tcount table if it exists
@@ -33,7 +57,7 @@ Drop the tcount table if it exists
 `$ psql -U postgres -c "DROP DATABASE tcount"`
 
 ----------------
-STEP 3
+STEP 4
 ----------------
 
 Run the twitter stream
@@ -45,7 +69,7 @@ Run the twitter stream
 Wait ~5 minutes and type `Control-C` to stop the process
 
 ----------------
-STEP 4
+STEP 5
 ----------------
 
 Run python code to test results
@@ -60,7 +84,7 @@ Find the number of times trump was mentioned
 
 
 ----------------
-STEP 5
+STEP 6
 ----------------
 
 run the histogram python script
